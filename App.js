@@ -1,26 +1,16 @@
-import { View, Text, StyleSheet, Button } from 'react-native'
-import React, { useState } from 'react'
 
-const Count = () => {
-  const [number, setNumber] = useState(0);
 
+import { View, Text } from 'react-native'
+import React from 'react'
+import Login from './src/components/Login/Login'
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>You just {number}</Text>
-      <Button
-        onPress={() => setNumber(number + 1)}
-        title="Click me"
-      />
+    <View>
+      <Text>Login</Text>
+      <Login/>
     </View>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-
-  }
-})
-export default Count;
+export default App

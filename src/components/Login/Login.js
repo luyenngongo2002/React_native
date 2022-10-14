@@ -1,22 +1,39 @@
 import {
   View,
-  Text,
-  ImageBackground,
+  StyleSheet, Text
 } from 'react-native';
 import React from 'react';
-import styles from './styles';
-const Login = () => {
-  const image = {
-    url: 'https://reactjs.org/logo-og.png',
-  };
 
+const Login = () => {
   return (
-    <View style= {styles.loginContainer} >
-      <Text>fgvbbbb</Text>
-      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-      </ImageBackground>
-  </View>
+    <View style={styles.formLogin}>
+        
+          <View style={styles.formContent}>
+            <Text>dfdfdff</Text>
+            {/* Email and Password  */}
+            <View style={styles.itemEmail}>
+
+            </View>
+            <View style={styles.itemPass}>
+
+            </View>
+          </View>
+  
+    </View>
   );
 };
+const styles = StyleSheet.create({
+  formLogin: {
+    flex: 1,
+    backgroundColor:'red',
+  },
+  formContent: {
+    height: 100,
+    width: 100,
+    backgroundColor: 'skypeblue',
+    marginTop: 50,
+  },
+  
+});
 
 export default Login;

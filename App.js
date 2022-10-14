@@ -1,108 +1,210 @@
-import { useState } from "react";
-import {
-  KeyboardAvoidingView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import Task from "./components/Task";
+import React, {useState} from 'react';
+import {Text, View, TouchableOpacity} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-export default function App() {
-  const [task, setTask] = useState("");
-  const [tasks, setTasks] = useState([]);
+const FirstScreen = () => {
+  // const [flexDirection, setflexDirection] = useState('column');
 
-  const addTask = () => {
-    setTasks([...tasks, task]);
-    setTask("");
-  };
-
-  const completeTask = (index) => {
-    let tasksCopy = [...tasks];
-    tasksCopy.splice(index, 1);
-    setTasks(tasksCopy);
-  };
+  // return (
+  //   <PreviewLayout
+  //     label="flexDirection"
+  //     values={['column', 'row', 'row-reverse', 'column-reverse']}
+  //     selectedValue={flexDirection}
+  //     setSelectedValue={setflexDirection}>
+  //     <View style={[styles.box, {backgroundColor: 'powderblue'}]} />
+  //     <View style={[styles.box, {backgroundColor: 'skyblue'}]} />
+  //     <View style={[styles.box, {backgroundColor: 'steelblue'}]} />
+  //   </PreviewLayout>
+  // );
+  const [direction, setDirection] = useState('ltr');
 
   return (
-    <View style={styles.container}>
-      <View style={styles.taskWrapper}>
-        <Text style={styles.sectionTitle}>Today's tasks</Text>
-        <View style={styles.items}>
-          {tasks.map((item, index) => {
-            return (
-              <TouchableOpacity
-                onPress={() => completeTask(index)}
-                key={index}
-              >
-                <Task text={item} />
-              </TouchableOpacity>
-            );
-          })}
-        </View>
+    <PreviewLayout
+      label="direction"
+      selectedValue={direction}
+      values={['ltr', 'rtl']}
+      setSelectedValue={setDirection}>
+      <View style={[styles.box, {backgroundColor: 'powderblue'}]} />
+      <View style={[styles.box, {backgroundColor: 'skyblue'}]} />
+      <View style={[styles.box, {backgroundColor: 'steelblue'}]} />
+    </PreviewLayout>
+  );
+};
+FirstScreen;
+
+function SecondScreen() {
+  const [position, setPosition] = useState('relative');
+  const values = ['relative', 'absolute'];
+
+  return (
+    <View style={{padding: 10, flex: 1}}>
+      <View style={styles.row}>
+        {values.map(value => (
+          <TouchableOpacity
+            key={value}
+            onPress={() => setPosition(value)}
+            style={[styles.button, position === value && styles.selected]}>
+            <Text
+              style={[
+                styles.buttonLabel,
+                position === value && styles.selectedLabel,
+              ]}>
+              {value}
+            </Text>
+          </TouchableOpacity>
+        ))}
       </View>
-      <KeyboardAvoidingView
-        style={styles.writeTaskWrapper}
-        behavior="height"
-      >
-        <TextInput
-          style={styles.input}
-          placeholder="Add new task ..."
-          value={task}
-          onChangeText={(text) => setTask(text)}
+      <View style={styles.container}>
+        <View
+          style={[
+            styles.box,
+            {
+              top: 25,
+              left: 25,
+              position,
+              backgroundColor: 'powderblue',
+            },
+          ]}
         />
-        <TouchableOpacity onPress={addTask}>
-          <View style={styles.addWrapper}>
-            <Text>+</Text>
-          </View>
-        </TouchableOpacity>
-      </KeyboardAvoidingView>
+        <View
+          style={[
+            styles.box,
+            {
+              top: 50,
+              left: 50,
+              position,
+              backgroundColor: 'skyblue',
+            },
+          ]}
+        />
+        <View
+          style={[
+            styles.box,
+            {
+              top: 75,
+              left: 75,
+              position,
+              backgroundColor: 'steelblue',
+            },
+          ]}
+        />
+      </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const JustifyContentBasics = () => {
+  const [justifyContent, setJustifyContent] = useState('flex-start');
+
+  return (
+    <PreviewLayout
+      label="justifyContent"
+      selectedValue={justifyContent}
+      values={[
+        'flex-start',
+        'flex-end',
+        'center',
+        'space-between',
+        'space-around',
+        'space-evenly',
+      ]}
+      setSelectedValue={setJustifyContent}>
+      <View style={[styles.box, {backgroundColor: 'powderblue'}]} />
+      <View style={[styles.box, {backgroundColor: 'skyblue'}]} />
+      <View style={[styles.box, {backgroundColor: 'steelblue'}]} />
+    </PreviewLayout>
+  );
+};
+
+const PreviewLayout = ({
+  label,
+  children,
+  values,
+  selectedValue,
+  setSelectedValue,
+}) => (
+  <View style={{padding: 10, flex: 1}}>
+    <Text style={styles.label}>{label}</Text>
+    <View style={styles.row}>
+      {values.map(value => (
+        <TouchableOpacity
+          key={value}
+          onPress={() => setSelectedValue(value)}
+          style={[styles.button, selectedValue === value && styles.selected]}>
+          <Text
+            style={[
+              styles.buttonLabel,
+              selectedValue === value && styles.selectedLabel,
+            ]}>
+            {value}
+          </Text>
+        </TouchableOpacity>
+      ))}
+    </View>
+    <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
+  </View>
+);
+
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="direction" component={FirstScreen} />
+      <Tab.Screen name="position" component={SecondScreen} />
+      <Tab.Screen name="Jutifycontent" component={JustifyContentBasics} />
+    </Tab.Navigator>
+  );
+}
+const styles = {
   container: {
     flex: 1,
-    backgroundColor: "#E8EAED",
+    marginTop: 8,
+    backgroundColor: 'grey',
   },
-  taskWrapper: {
-    paddingTop: 80,
-    paddingHorizontal: 20,
+  box: {
+    width: 50,
+    height: 50,
   },
-  items: {
-    marginTop: 20,
+  row: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
-  sectionTitle: {
+  button: {
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+    borderRadius: 4,
+    backgroundColor: 'oldlace',
+    alignSelf: 'flex-start',
+    marginHorizontal: '1%',
+    marginBottom: 6,
+    minWidth: '48%',
+    textAlign: 'center',
+  },
+  selected: {
+    backgroundColor: 'coral',
+    borderWidth: 0,
+  },
+  buttonLabel: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: 'coral',
+  },
+  selectedLabel: {
+    color: 'white',
+  },
+  label: {
+    textAlign: 'center',
+    marginBottom: 10,
     fontSize: 24,
-    fontWeight: "bold",
   },
-  input: {
-    paddingHorizontal: 15,
-    paddingVertical: 15,
-    backgroundColor: "#FFF",
-    borderRadius: 60,
-    width: 250,
-    borderWidth: 1,
-    borderColor: "#C0C0C0",
-  },
-  writeTaskWrapper: {
-    position: "absolute",
-    bottom: 60,
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignContent: "center",
-  },
-  addText: {},
-  addWrapper: {
-    width: 60,
-    height: 60,
-    backgroundColor: "#FFF",
-    borderRadius: 60,
-    justifyContent: "center",
-    alignItems: "center",
-    borderColor: "#C0C0C0",
-    borderWidth: 1,
-  },
-});
+};
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
+  );
+}

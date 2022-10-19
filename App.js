@@ -1,108 +1,56 @@
-import { useState } from "react";
-import {
-  KeyboardAvoidingView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import Task from "./components/Task";
+import {View, Text, StyleSheet} from 'react-native';
+import React from 'react';
+import TopProduct from './src/components/TopProducts';
+import AllProducts from './src/components/AllProducts';
+import Banner from './src/components/Banner';
 
-export default function App() {
-  const [task, setTask] = useState("");
-  const [tasks, setTasks] = useState([]);
-
-  const addTask = () => {
-    setTasks([...tasks, task]);
-    setTask("");
-  };
-
-  const completeTask = (index) => {
-    let tasksCopy = [...tasks];
-    tasksCopy.splice(index, 1);
-    setTasks(tasksCopy);
-  };
-
+const App = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.taskWrapper}>
-        <Text style={styles.sectionTitle}>Today's tasks</Text>
-        <View style={styles.items}>
-          {tasks.map((item, index) => {
-            return (
-              <TouchableOpacity
-                onPress={() => completeTask(index)}
-                key={index}
-              >
-                <Task text={item} />
-              </TouchableOpacity>
-            );
-          })}
-        </View>
+      <View style={styles.banner}>
+        <Banner />
       </View>
-      <KeyboardAvoidingView
-        style={styles.writeTaskWrapper}
-        behavior="height"
-      >
-        <TextInput
-          style={styles.input}
-          placeholder="Add new task ..."
-          value={task}
-          onChangeText={(text) => setTask(text)}
-        />
-        <TouchableOpacity onPress={addTask}>
-          <View style={styles.addWrapper}>
-            <Text>+</Text>
-          </View>
-        </TouchableOpacity>
-      </KeyboardAvoidingView>
+      <View style={styles.title}>
+        <Text>Diabetic Diet</Text>
+      </View>
+      <View style={styles.top_product}>
+        <TopProduct />
+      </View>
+      <View style={styles.title_a}>
+        <Text>All Products</Text>
+      </View>
+      <View style={styles.all_product}>
+        <AllProducts/>
+        </View>
     </View>
   );
-}
-
+};
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#E8EAED",
+    marginHorizontal: 16,
   },
-  taskWrapper: {
-    paddingTop: 80,
-    paddingHorizontal: 20,
+  title: {
+    width: 94,
+    height: 25,
+    left: 24,
+    top: 60,
   },
-  items: {
-    marginTop: 20,
+  title_a: {
+    width: 94,
+    height: 25,
+    left: 24,
+    top: 30,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: "bold",
+  top_product: {
+    height: 162,
+    left: 12,
+    top: 45,
   },
-  input: {
-    paddingHorizontal: 15,
-    paddingVertical: 15,
-    backgroundColor: "#FFF",
-    borderRadius: 60,
-    width: 250,
-    borderWidth: 1,
-    borderColor: "#C0C0C0",
-  },
-  writeTaskWrapper: {
-    position: "absolute",
-    bottom: 60,
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignContent: "center",
-  },
-  addText: {},
-  addWrapper: {
-    width: 60,
-    height: 60,
-    backgroundColor: "#FFF",
-    borderRadius: 60,
-    justifyContent: "center",
-    alignItems: "center",
-    borderColor: "#C0C0C0",
-    borderWidth: 1,
-  },
+  all_product:{
+    left: 12,
+    top: 10,
+  }
+
 });
+
+export default App;

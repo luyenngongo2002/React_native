@@ -34,13 +34,8 @@ const TopProducts = () => {
   ];
   const renderItem = () => (
     <View
-      style={[
-        styles.item,
-        {
-          width: (windowWidth - 56) / 2,
-          backgroundColor: 'red',
-        },
-      ]}>
+      style={
+        styles.item}>
       <Image
         style={styles.picture}
         source={require('../assets/img/download.jpg')}
@@ -69,7 +64,7 @@ const TopProducts = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
+    marginTop: 10,
   },
   item: {
 
@@ -86,7 +81,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-
     elevation: 1,
   },
   title: {

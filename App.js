@@ -38,16 +38,13 @@ const styles = StyleSheet.create({
   title_a: {
     width: 94,
     height: 25,
-    left: 24,
     top: 30,
   },
   top_product: {
     height: 162,
-    left: 12,
     top: 45,
   },
   all_product:{
-    left: 12,
     top: 10,
   }
 

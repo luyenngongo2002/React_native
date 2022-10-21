@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     width: 360,
     height: 200,
     borderRadius: 20,
+  
   },
   title: {
     position: 'absolute',

@@ -59,7 +59,7 @@ const TopProducts = () => {
                 style={styles.picture}
                 source={require('../assets/img/download.jpg')}
               />
-              <Text>Image1</Text>
+              <Text style={styles.title}>Image1</Text>
             </View>
           );
         })}
@@ -72,11 +72,29 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   item: {
-    borderWidth: 1,
-    borderColor: 'grey',
+
+    marginLeft: 10,
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+    borderTopRightRadius: 15,
+    borderTopLeftRadius: 15,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 1,
+  },
+  title: {
+    textAlign: 'center',
+    margin: 5,
   },
   picture: {
-    width: 149,
+    width: 119,
     height: 100,
   },
 });

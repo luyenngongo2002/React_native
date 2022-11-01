@@ -1,53 +1,55 @@
-import {View, Text, StyleSheet} from 'react-native';
-import React from 'react';
-import TopProduct from './src/components/TopProducts';
-import AllProducts from './src/components/AllProducts';
-import Banner from './src/components/Banner';
+import * as React from 'react';
+import {Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Homepage from './src/components/screens/Homepage';
+import Detailproduct from './src/components/screens/Detailproduct';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Profile from './src/components/screens/Profile';
 
-const App = () => {
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
   return (
-    <View style={styles.container}>
-      <View style={styles.banner}>
-        <Banner />
-      </View>
-      <View style={styles.title}>
-        <Text>Diabetic Diet</Text>
-      </View>
-      <View style={styles.top_product}>
-        <TopProduct />
-      </View>
-      <View style={styles.title_a}>
-        <Text>All Products</Text>
-      </View>
-      <View style={styles.all_product}>
-        <AllProducts/>
-        </View>
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="home" color={color} size={size} />
+          ),
+        }}
+        name="Homepage"
+        component={Homepage}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: 'Detail',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="eye" color={color} size={size} />
+          ),
+        }}
+        name="Detail"
+        component={Detailproduct}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="user" color={color} size={size} />
+          ),
+        }}
+        name="Profile"
+        component={Profile}
+      />
+    </Tab.Navigator>
   );
-};
-const styles = StyleSheet.create({
-  container: {
-    marginHorizontal: 16,
-  },
-  title: {
-    width: 94,
-    height: 25,
-    left: 24,
-    top: 60,
-  },
-  title_a: {
-    width: 94,
-    height: 25,
-    top: 30,
-  },
-  top_product: {
-    height: 162,
-    top: 45,
-  },
-  all_product:{
-    top: 10,
-  }
+}
 
-});
-
-export default App;
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
+  );
+}

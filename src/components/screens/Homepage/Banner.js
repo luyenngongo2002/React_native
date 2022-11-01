@@ -6,7 +6,7 @@ const Banner = () => {
     <View style={styles.container}>
       <Image
         style={styles.logo}
-        source={require('../assets/img/download.jpg')}
+        source={require('../../../assets/img/download.jpg')}
       />
       <View style={styles.title}>
         <Text style={styles.title_main}>Ngo Thi Luyen- PNV23B</Text>
@@ -20,11 +20,11 @@ const styles = StyleSheet.create({
     width: 361,
     height: 203,
     left: 8,
-    top: 56,
+    top: 50,
   },
   logo: {
-    width: 360,
-    height: 200,
+    width: 361,
+    height: 180,
     borderRadius: 20,
   
   },

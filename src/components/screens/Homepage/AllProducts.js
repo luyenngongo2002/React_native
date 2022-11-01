@@ -9,29 +9,38 @@ import {
 } from 'react-native';
 import React from 'react';
 
-const TopProducts = () => {
+const AllProducts = () => {
   const DATA = [
     {
       id: '1',
       title: 'Second Item',
+      img: require('../../../assets/img/image133.png'),
     },
     {
       id: '2',
       title: 'Third Item',
+      img: require('../../../assets/img/image20.png'),
     },
     {
       id: '3',
       title: 'First Item',
+      img: require('../../../assets/img/image135.png'),
     },
     {
       id: '4',
       title: 'Second Item',
+      img: require('../../../assets/img/image23.png'),
     },
-   
+    {
+      id: '5',
+      title: 'Third Item',
+      img: require('../../../assets/img/image20.png'),
+    },
+    
   ];
 
   const windowWidth = Dimensions.get('window').width;
-  const renderItem = () => (
+  const renderItem = ({item}) => (
     <View
       style={[
         styles.item,
@@ -39,21 +48,16 @@ const TopProducts = () => {
           width: (windowWidth - 56) / 2,
         },
       ]}>
-      <Image
-        style={styles.picture}
-        source={require('../assets/img/download.jpg')}
-      />
-      <View style={styles.text}>
-        <Text>Accu-check Active Test </Text>
-        <Text style={styles.price}>$112</Text>
-      </View>
+      <Image style={styles.picture} source={item.img} />
+      <Text>{item.title}</Text>
     </View>
   );
 
   return (
-    <ScrollView >
+    <ScrollView>
       <View style={styles.container}>
         <FlatList
+          showsVerticalScrollIndicator={false}
           columnWrapperStyle={{justifyContent: 'space-between'}}
           data={DATA}
           numColumns={2}
@@ -71,7 +75,7 @@ const styles = StyleSheet.create({
   item: {
     alignItems: 'center',
     marginTop: 10,
-    height: 170,
+    height: 160,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -87,8 +91,9 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   picture: {
-    width: 180,
-    height: 120,
+    width: 100,
+    height: 100,
+    marginTop: 20,
   },
   text: {
     margin: 5,
@@ -97,4 +102,4 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
 });
-export default TopProducts;
+export default AllProducts;

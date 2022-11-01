@@ -1,27 +1,142 @@
-import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import Banner from './Banner';
+import {StyleSheet, Text, View, Image} from 'react-native';
+// import styles from'../assets/style/pageStyle'
 
-
-const Detailproduct = () => {
+const DetailProduct = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}> Sugar Free Gold Low Calories</Text>
-      <View>
-        <Banner/>
+      {/* <Image
+        style={styles.slide}
+        source={require('../assets/img/flat-lay-pills-syringe-with-copy-space1.png')}
+      /> */}
+
+      <Text style={{fontWeight: '900', fontSize: 22, color: '#090F47'}}>
+        Sugar Free Gold Low Calories{' '}
+      </Text>
+      <Text style={styles.captionTitle}> Etiam mollis metus mon purus</Text>
+      <View style={styles.logo}>
+        <Image
+          style={styles.slideImage}
+          source={require('../../../assets/img/image23.png')}
+        />
+      </View>
+      <View style={styles.introDetail}>
+        <View>
+          <Text style={{fontWeight: '900', fontSize: 22, color: '#090F47'}}>
+            $56
+          </Text>
+          <Text style={styles.addTitle}>Etiam mollis</Text>
+        </View>
+        <View>
+          <Text style={styles.addCart}>Add to cart</Text>
+        </View>
+      </View>
+      <View style={styles.productPackage}>
+        <Text style={styles.titlePackage}>Package size</Text>
+        <View style={styles.pricingModel}>
+          <View style={styles.priceIndi}>
+            <Text style={styles.priceFi}>$106</Text>
+            <Text style={styles.titleFi}>50 pellets</Text>
+          </View>
+          <View style={styles.priceAva}>
+            <Text style={styles.price}>$166</Text>
+            <Text style={styles.title}>110 pellets</Text>
+          </View>
+          <View style={styles.priceAva}>
+            <Text style={styles.price}>$252</Text>
+            <Text style={styles.title}>300 pellets</Text>
+          </View>
+        </View>
       </View>
     </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 16,
-    top:20,
+    backgroundColor: '#FFFF',
   },
-  title:{
-    fontSize: 20,
-    fontWeight: 'bold',
+  pageTitle: {
+    fontSize: 22,
+    fontWeight: '300',
+  },
+  captionTitle: {
+    color: '#090F47',
+  },
+  logo: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F8F8F8',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 20,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+  },
+  slideImage: {},
+
+  introDetail: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  addCart: {
+    marginLeft: 200,
+    color: '#006AFF',
+    fontSize: 22,
+  },
+  addTitle: {
+    color: '#090F47',
+  },
+  productPackage: {
+    marginTop: 30,
+  },
+  pricingModel: {
+    marginTop: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  price: {
+    fontSize: 19,
+    fontWeight: '900',
+    color: '#090F47',
+  },
+  title: {
+    fontsize: 12,
+  },
+  priceFi:{
+    fontSize: 19,
+    fontWeight: '900',
+    color: '#FFA41B',
+  },
+  titlePackage: {
+    color: '#090F47',
+    fontSize: 16,
+  },
+  titleFi:{
+    fontsize: 12,
+    color:'#FFA41B',
+  },
+  priceAva: {
+    backgroundColor: '#F5F5F5',
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+
+  },
+  priceIndi:{
+    backgroundColor: '#F5F5F5',
+    paddingHorizontal: 15,
+    borderWidth: 2,
+    paddingVertical: 15,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
   },
 });
-
-export default Detailproduct;
+export default DetailProduct;

@@ -5,11 +5,6 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 const DetailProduct = () => {
   return (
     <View style={styles.container}>
-      {/* <Image
-        style={styles.slide}
-        source={require('../assets/img/flat-lay-pills-syringe-with-copy-space1.png')}
-      /> */}
-
       <Text style={{fontWeight: '900', fontSize: 22, color: '#090F47'}}>
         Sugar Free Gold Low Calories{' '}
       </Text>

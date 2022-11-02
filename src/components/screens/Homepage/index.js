@@ -4,7 +4,7 @@ import Banner from './Banner';
 import TopProducts from './TopProducts';
 import AllProducts from './AllProducts';
 
-const Homepage = () => {
+const Homepage = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.banner}>
@@ -14,7 +14,7 @@ const Homepage = () => {
         <Text>Diabetic Diet</Text>
       </View>
       <View style={styles.top_product}>
-        <TopProducts />
+        <TopProducts navigation={navigation} />
       </View>
       <View style={styles.title_a}>
         <Text>All Products</Text>

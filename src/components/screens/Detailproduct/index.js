@@ -1,18 +1,23 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 // import styles from'../assets/style/pageStyle'
+import { useEffect } from 'react';
+const DetailProduct = ({route,navigator}) => {
 
-const DetailProduct = () => {
+       const user = route.params.user;
+       console.log("kdfjkdfjkdjfkd",user);
+    
+    
   return (
     <View style={styles.container}>
       <Text style={{fontWeight: '900', fontSize: 22, color: '#090F47'}}>
         Sugar Free Gold Low Calories{' '}
       </Text>
-      <Text style={styles.captionTitle}> Etiam mollis metus mon purus</Text>
+      <Text style={styles.captionTitle}> {user.title}</Text>
       <View style={styles.logo}>
         <Image
           style={styles.slideImage}
-          source={require('../../../assets/img/image23.png')}
+          source={user.img}
         />
       </View>
       <View style={styles.introDetail}>

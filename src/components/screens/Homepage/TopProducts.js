@@ -11,9 +11,7 @@ import {
 import React from 'react';
 
 const TopProducts = ({navigation}) => {
-  const OnPress = () => {
-    navigation.navigate('Detail');
-  }
+  
   const DATA = [
     {
       id: '1',
@@ -61,7 +59,10 @@ const TopProducts = ({navigation}) => {
       showsHorizontalScrollIndicator={false}>
       {DATA.map((ele, index) => {
         return (
-          <TouchableOpacity onPress={OnPress} key={index} style={styles.item}>
+          <TouchableOpacity onPress={ ()=>{
+              navigation.navigate('DetailProduct',{user:ele})
+          } } 
+          key={index} style={styles.item}>
             <Image style={styles.picture} source={ele.img} />
             <Text style={styles.title}>{ele.title}</Text>
           </TouchableOpacity>

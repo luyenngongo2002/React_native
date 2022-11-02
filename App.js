@@ -29,7 +29,7 @@ function MyTabs() {
             <Icon name="eye" color={color} size={size} />
           ),
         }}
-        name="Detail"
+        name="DetailProduct"
         component={Detailproduct}
       />
       <Tab.Screen

@@ -6,6 +6,7 @@ import {
   ScrollView,
   FlatList,
   Dimensions,
+  Button,
 } from 'react-native';
 import React from 'react';
 
@@ -13,30 +14,40 @@ const AllProducts = () => {
   const DATA = [
     {
       id: '1',
-      title: 'Second Item',
-      img: require('../../../assets/img/image133.png'),
+      title: 'SHonda SH 2022',
+      desc: 'Cách trung tâm 30 km',
+      price: 'VND 100.000/ngày',
+      img: require('../../../assets/img/car1.jpg'),
     },
     {
       id: '2',
-      title: 'Third Item',
-      img: require('../../../assets/img/image20.png'),
+      title: 'Honda SH 2022',
+      desc: 'Cách trung tâm 30 km',
+      price: 'VND 100.000/ngày',
+
+      img: require('../../../assets/img/car2.jpg'),
     },
     {
       id: '3',
-      title: 'First Item',
-      img: require('../../../assets/img/image135.png'),
+      title: 'Honda SH 2022',
+      desc: 'Cách trung tâm 30 km',
+      price: 'VND 100.000/ngày',
+
+      img: require('../../../assets/img/car3.jpg'),
     },
     {
       id: '4',
-      title: 'Second Item',
-      img: require('../../../assets/img/image23.png'),
+      title: 'SHonda SH 2022',
+      desc: 'Cách trung tâm 30 km',
+      price: 'VND 100.000/ngày',
+
+      img: require('../../../assets/img/car4.jpg'),
     },
     {
       id: '5',
-      title: 'Third Item',
-      img: require('../../../assets/img/image20.png'),
+      title: 'Honda SH 2022',
+      img: require('../../../assets/img/car4.jpg'),
     },
-    
   ];
 
   const windowWidth = Dimensions.get('window').width;
@@ -49,7 +60,17 @@ const AllProducts = () => {
         },
       ]}>
       <Image style={styles.picture} source={item.img} />
-      <Text>{item.title}</Text>
+      <View style={styles.packet}>
+        <View>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.price}>{item.price}</Text>
+          <Text style={styles.desc}>{item.desc}</Text>
+        </View>
+
+        <View style={styles.buttonStyle}>
+          <Button title={'Đặt'}></Button>
+        </View>
+      </View>
     </View>
   );
 
@@ -73,33 +94,39 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   item: {
-    alignItems: 'center',
-    marginTop: 10,
     height: 160,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
-    elevation: 1,
+    marginBottom: 40,
+   
+  },
+  picture: {
+    width: 180,
+    height: 130,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
     borderTopRightRadius: 15,
     borderTopLeftRadius: 15,
-    overflow: 'hidden',
   },
-  picture: {
-    width: 100,
-    height: 100,
-    marginTop: 20,
+  desc: {
+    fontSize: 10,
   },
-  text: {
-    margin: 5,
+  title: {
+    fontSize: 12,
   },
   price: {
-    alignSelf: 'center',
+    fontSize: 8,
+    color: 'red',
   },
+  buttonStyle: {
+    height: 40,
+    width: 70,
+    fontSize: 10,
+    margin: 10,
+   
+    
+  },
+  packet:{
+    flexDirection: "row",
+    flex: 1
+  }
 });
 export default AllProducts;

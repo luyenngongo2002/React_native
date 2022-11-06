@@ -1,13 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 // import styles from'../assets/style/pageStyle'
-import { useEffect } from 'react';
-const DetailProduct = ({route,navigator}) => {
-
-       const user = route.params.user;
-       console.log("kdfjkdfjkdjfkd",user);
-    
-    
+import {useEffect} from 'react';
+const DetailProduct = ({route, navigator}) => {
+  const user = route.params.user;
   return (
     <View style={styles.container}>
       <Text style={{fontWeight: '900', fontSize: 22, color: '#090F47'}}>
@@ -15,10 +11,7 @@ const DetailProduct = ({route,navigator}) => {
       </Text>
       <Text style={styles.captionTitle}> {user.title}</Text>
       <View style={styles.logo}>
-        <Image
-          style={styles.slideImage}
-          source={user.img}
-        />
+        <Image style={styles.slideImage} source={user.img} />
       </View>
       <View style={styles.introDetail}>
         <View>
@@ -105,7 +98,7 @@ const styles = StyleSheet.create({
   title: {
     fontsize: 12,
   },
-  priceFi:{
+  priceFi: {
     fontSize: 19,
     fontWeight: '900',
     color: '#FFA41B',
@@ -114,9 +107,9 @@ const styles = StyleSheet.create({
     color: '#090F47',
     fontSize: 16,
   },
-  titleFi:{
+  titleFi: {
     fontsize: 12,
-    color:'#FFA41B',
+    color: '#FFA41B',
   },
   priceAva: {
     backgroundColor: '#F5F5F5',
@@ -126,9 +119,8 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 10,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-
   },
-  priceIndi:{
+  priceIndi: {
     backgroundColor: '#F5F5F5',
     paddingHorizontal: 15,
     borderWidth: 2,

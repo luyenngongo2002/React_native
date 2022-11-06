@@ -11,13 +11,13 @@ const Homepage = ({navigation}) => {
         <Banner />
       </View>
       <View style={styles.title}>
-        <Text>Diabetic Diet</Text>
+        <Text>Đại lý cho thuê xe</Text>
       </View>
       <View style={styles.top_product}>
         <TopProducts navigation={navigation} />
       </View>
-      <View style={styles.title_a}>
-        <Text>All Products</Text>
+      <View style={styles.title}>
+        <Text>Thuê xe</Text>
       </View>
       <View style={styles.all_product}>
        <AllProducts/>
@@ -30,10 +30,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   title: {
-    width: 94,
+    width: "100%",
     height: 25,
-    left: 24,
-    top: 40,
+    left: 10,
+    top: 10,
+    color:"3F569C"
   },
   title_a: {
     width: 94,
@@ -43,12 +44,8 @@ const styles = StyleSheet.create({
   },
   top_product: {
     height: 162,
-    top: 25,
   },
-  all_product: {
-    top: 5,
-   
-  },
+
 });
 
 export default Homepage;

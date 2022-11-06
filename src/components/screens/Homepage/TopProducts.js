@@ -15,41 +15,36 @@ const TopProducts = ({navigation}) => {
   const DATA = [
     {
       id: '1',
-      title: 'Second Item',
-      img: require('../../../assets/img/image133.png'),
+      title: 'My Home',
+      desc: 'Cách trung tâm 30 km',
+      img: require('../../../assets/img/unnamed.png'),
     },
     {
       id: '2',
-      title: 'Third Item',
-      img: require('../../../assets/img/image20.png'),
+      title: 'Chị Ba',
+      desc: 'Cách trung tâm 30 km',
+      img: require('../../../assets/img/unnamed.png'),
     },
     {
       id: '3',
       title: 'First Item',
-      img: require('../../../assets/img/image135.png'),
+      desc: 'Cách trung tâm 30 km',
+      desc: 'Cách trung tâm 30 km',
+      img: require('../../../assets/img/unnamed.png'),
     },
     {
       id: '4',
       title: 'Second Item',
-      img: require('../../../assets/img/image23.png'),
+      img: require('../../../assets/img/unnamed.png'),
     },
     {
       id: '5',
       title: 'Third Item',
-      img: require('../../../assets/img/image20.png'),
+      desc: 'Cách trung tâm 30 km',
+      img: require('../../../assets/img/unnamed.png'),
     },
     ,
-    {
-      id: '6',
-      title: 'Third Item',
-      img: require('../../../assets/img/image134.png'),
-    },
-    ,
-    {
-      id: '7',
-      title: 'Third Item',
-      img: require('../../../assets/img/image135.png'),
-    },
+   
   ];
 
   return (
@@ -65,6 +60,8 @@ const TopProducts = ({navigation}) => {
           key={index} style={styles.item}>
             <Image style={styles.picture} source={ele.img} />
             <Text style={styles.title}>{ele.title}</Text>
+            <Text style={styles.desc}>{ele.desc}</Text>
+
           </TouchableOpacity>
         );
       })}
@@ -73,12 +70,21 @@ const TopProducts = ({navigation}) => {
 };
 const styles = StyleSheet.create({
   container: {
-    top: 20,
+    top: 10,
   },
   item: {
-    width: 100,
+    width: 200,
     height: 150,
     marginLeft: 15,
+  },
+  title: {
+    fontSize: 12,
+    // backgroundColor: "#DCDCDC",
+    marginTop: 5,
+  },
+  picture: {
+    width: 180,
+    height: 120,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
     borderTopRightRadius: 15,
@@ -92,14 +98,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
     backgroundColor: '#F5F7FA',
-  },
-  title: {
-    textAlign: 'center',
-    margin: 5,
-  },
-  picture: {
-    width: 119,
-    height: 100,
   },
 });
 export default TopProducts;
